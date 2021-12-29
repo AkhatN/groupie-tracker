@@ -1,0 +1,414 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.navbar {
+    border: white;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+    height: 70px;
+}
+
+.home {
+    font-family: 'Circular-cyr', Helvetica, Arial, sans-serif !important;
+    margin-left: 10%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    transition: linear .2s;
+}
+
+.home:hover {
+    color: rgb(239, 253, 111);
+}
+
+.search {
+    font-family: 'Circular-cyr', Helvetica, Arial, sans-serif !important;
+    background-color: white;
+    color: black;
+    border: 1px solid #b3b9c1;
+    height: 34px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    transition: linear .2s;
+}
+
+.search:hover {
+    background-color: #b023c2;
+}
+
+.select {
+    font-family: 'Circular-cyr', Helvetica, Arial, sans-serif !important;
+    background-color: white;
+    color: black;
+    border: 1px solid #b3b9c1;
+    height: 38px;
+    border-radius: 10px;
+    padding-left: 5px;
+    background-size: 10px 10px;
+    outline: none;
+    width: 150px;
+    font-size: 16px;
+    transition: linear .2s;
+}
+
+.select:hover {
+    background-color: #b023c2;
+}
+
+.btn {
+    border: 1px solid #b3b9c1;
+    height: 38px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: linear .2s;
+    margin-right: 50px;
+}
+
+.btn:hover {
+    background-color: #b023c2;
+}
+
+.content {
+    background: linear-gradient(#b023c2 15%, #600be7);
+    min-height: 100%;
+}
+
+.back {
+    min-height: 100%;
+    padding-top: 70px;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.boxofartists {
+    border-radius: 5px;
+    width: 240px;
+    height: 240px;
+    padding: 20px;
+    background: rgb(255, 255, 255) radial-gradient(circle at 50% 0, rgba(255, 254, 253, 0.959), rgba(255, 254, 253, 0.877));
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    transition: linear .2s;
+    text-align: center;
+}
+
+.boxofartists:hover {
+    background: rgb(239, 253, 111) radial-gradient(circle at 50% 0, rgba(236, 233, 20, 0.959), rgba(238, 223, 9, 0.877));
+    box-shadow:
+        inset rgba(0, 0, 0, .6) 0 -3px 8px,
+        inset rgb(253, 253, 253) 0 3px 8px,
+        rgba(0, 0, 0, .8) 0 3px 8px -3px;
+}
+
+.textarea {
+    font-family: 'Circular-cyr', Helvetica, Arial, sans-serif !important;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+nav li {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 20px 0px 20px;
+}
+
+a {
+    text-decoration: none;
+    margin: 15px;
+}
+
+img {
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.name1 {
+    margin-top: 10px;
+}
+
+/* FILTER */
+.form-popup * {
+    box-sizing: border-box;
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    font-family: 'Circular-cyr', Helvetica, Arial, sans-serif !important;
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+    border-radius: 10px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.filter-container {
+    font-family: 'Circular-cyr', Helvetica, Arial, sans-serif !important;
+    border: 2px solid #600be7;
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:
+        inset rgba(0, 0, 0, .6) 0 -3px 8px,
+        inset rgb(253, 253, 253) 0 3px 8px,
+        rgba(0, 0, 0, .8) 0 3px 8px -3px;
+}
+
+/* Set a style for the submit/login button */
+.filter-container .btn {
+    font-family: 'Circular-cyr', Helvetica, Arial, sans-serif !important;
+    background-color: #b023c2;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+/* Add a red background color to the cancel button */
+.filter-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.filter-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+#creationHidden,
+#albumHidden,
+#membersHidden,
+#locationHidden {
+    display: none;
+}
+
+
+.input1 {
+    margin: 2px 0px;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        justify-content: space-evenly;
+        flex-direction: column;
+        height: 140px;
+    }
+
+    .home {
+        margin-left: 0%;
+    }
+
+    .search {
+        border-radius: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        transition: linear .2s;
+    }
+
+    .btn {
+        margin-right: 0px;
+    }
+
+    .back {
+        padding-top: 140px;
+    }
+}
+
+@media (max-width: 400px) {
+    .search {
+        height: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 12px;
+    }
+
+    .select {
+        height: 30px;
+        padding-left: 5px;
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .btn {
+        height: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .open-button {
+        bottom: 20px;
+        right: 40px;
+        width: 150px;
+    }
+
+    .form-popup {
+        right: 10px;
+    }
+
+    .filter-container {
+        max-width: 200px;
+    }
+
+    .filter-container .btn {
+        padding: 5px;
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+
+    .filter-container input[type=text] {
+        width: 50%;
+    }
+    .filter-container input[type=number] {
+        width: 50%;
+    }
+}
+
+@media (max-width: 300px) {
+    .search {
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .select {
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .btn {
+        height: 20px;
+    }
+
+    .boxofartists {
+        width: 180px;
+        height: 200px;
+        margin: 10px;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .textarea {
+        font-size: 12px;
+    }
+
+    .open-button {
+        font-size: 12px;
+    }
+
+    .filter-container {
+        font-size: 10px;
+        max-width: 200px;
+    }
+
+    .filter-container .btn {
+        font-size: 10px;
+    }
+}
+
+
+
+@media (max-width: 280px) {
+    .navbar {
+        justify-content: space-evenly;
+        text-align: center;
+    }
+
+    .select {
+        margin-top: 5px;
+    }
+
+    .search {
+        margin-top: 5px;
+    }
+}
+
+
+@media (max-width: 240px) {
+    .open-button {
+        bottom: 20px;
+        width: 60%;
+    }
+
+    .filter-container {
+        width: 90%;
+    }
+
+    .form-popup {
+        right: 0px;
+    }
+
+    .boxofartists {
+        width: 80%;
+        height: 180px;
+        margin: 5px;
+    }
+
+    img {
+        width: 80%;
+        height: 80%;
+    }
+
+    .textarea {
+        font-size: 10px;
+    }
+}
+
+@media (max-height: 300px) {
+    .filter-container {
+            font-size: 10px;
+            max-height: 250px;
+            padding: 5px;
+    }
+    
+    .filter-container .btn {
+        font-size: 10px;
+        padding: 2px;
+    }
+}

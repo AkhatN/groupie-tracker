@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:;base64,=">
+    <title>home</title>
+</head>
+<body>
+   <header>
+        <nav class="navbar">
+                <a href="/" class="home">GROUIPIE-TRACKER</a>
+              <!-- SEARCH-BAR -->
+              <!-- <div class="search-container"> -->
+                <form action="/search" method="GET">
+                  <input id= "search" class="search" type="text" placeholder="Search.." list="list" name="search" required>
+                  <datalist id="list">
+                    {{range .Art}}
+                    <option>{{ .Name }} -> Artist/Band</option>
+                    <option>{{ .FirstAlbum }} -> First album date</option>
+                    <option>{{ .CreationDate }} -> Creation date</option>
+                    {{range .Members}}
+                    <option>{{ . }} -> Members</option>
+                    {{ end }}
+                 {{ end }}
+                  {{ range .SugestionLoc}}
+                    <option>{{ . }} -> Locations</option>
+                    {{end}}
+                  </datalist>
+                  <label for="option"></label>
+                  <select class="select" name="option" id="info">
+                    <option selected="" value="name">Artist/Band</option>
+                    <option value="members">Members</option>
+                    <option value="locations">Locations</option>
+                    <option value="albumdate">First album date</option>
+                    <option value="creationdate">Creation date</option>
+                  </select> 
+                  <button class="btn" type="submit"><i class="fa fa-search"></i></button><br>
+                  <script src="/static/js/search.js"></script>
+                </form>
+              <!-- </div> -->
+              <!-- FILTER -->
+              <button class="open-button" id="openbtn" onclick="openForm()">Open Filter</button>
+              <div class="form-popup" id="myForm">
+                <!-- FORM FILTER -->
+                <form action="/filter" class="filter-container" method="POST">
+                  <br>  
+                  <h1>Filter</h1>
+                  <input id="filter1" type="checkbox" name="isCreationDate" value="true" autocomplete="off" onclick="openCreation()">
+                  <label for="filter1">Creation date</label><br>
+                  <!-- creation hidden -->
+                  <div id="creationHidden">
+                    <!-- <label for="start">From:</label> -->
+                    <input class="input1" type="number" name="creationFrom" min="1900" max="2022" placeholder="From ..."><br>
+                    <!-- <label for="start">to:</label> -->
+                    <input type="number" name="creationTo" min="1900" max="2022" placeholder="to ...">
+                    <br>
+                  </div>
+                  <!-- <input type="checkbox" name="isAlbum" value="true"> -->
+                  <input id="filter2" type="checkbox" name="isAlbum" value="true" autocomplete="off" onclick="openAlbum()">
+                  <label for="filter2">Album first date</label><br>
+                  <!-- album hidden -->
+                  <div id="albumHidden">
+                    <!-- <label for="start1">From:</label> -->
+                    <input class="input1" type="number" name="albumFrom" min="1900" max="2022" placeholder="From ..."><br>
+                    <!-- <label for="start2">to:</label> -->
+                    <input class="input1" type="number" name="albumTo" min="1900" max="2022" placeholder="to ...">
+                    <br>
+                  </div>   
+                  <input id="filter3" type="checkbox" name="isMembers" value="true" autocomplete="off" onclick="openMembers()">
+                  <label for="filter3">Number of members</label><br>
+                  <div id="membersHidden">
+                  <!-- <label for="start4">From:</label> -->
+                    <input class="input1" type="number" name="membersFrom" min="0" placeholder="From ..."><br>
+                    <!-- <label for="start3">to:</label> -->
+                    <input class="input1" type="number" name="membersTo" min="0" placeholder="to ...">
+                    <br>
+                    </div>
+                  <input id="filter4" type="checkbox" name="isLocation" value="true" autocomplete="off" onclick="openLocation()">
+                  <label for="filter4">Locations of concerts</label>
+                  <div id="locationHidden">
+                  <input class="input1" type="text" name="locationFilter">
+                  </div>
+                  <br><br>
+                  <button type="submit" class="btn" value="Submit">Submit</button>
+                  <button type="button" class="btn cancel" onclick="closeForm()">Close Filter</button>
+                  <script src="/static/js/hidecheckbox.js"></script>
+                </form>
+              </div>
+              <script src="/static/js/filter.js"></script>
+              <!-- FILTER END -->
+        </nav>
+    </header>
+    <div class="content">
+         <div class="back">
+            {{ range .Art}}
+            <!-- Artist Box -->
+            <a href="/artists/{{.ID}}">
+            <div class="boxofartists">
+            <div class="textarea">
+                    <img src="{{.Image}}">
+                    <div class="name1">{{.Name}}</div>
+            </div>
+        </div>
+      </a>
+        {{ end }}
+        </div>
+        </div>
+</body>
+</html>

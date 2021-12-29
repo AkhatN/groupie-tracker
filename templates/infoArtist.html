@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/css/artist.css">
+    <link rel="icon" href="data:;base64,=">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=f94b447f-fced-40dc-bde8-88044879c0d9&lang=ru_RU" type="text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+     <header>
+        <nav class="navbar">
+            <a href="/" class="home">GROUIPIE-TRACKER</a>
+        </nav>
+    </header>
+    <div class="back">
+    <div class="textarea">
+        <div>
+            <img src="{{.Image}}">
+            <br>
+           <p>{{.Name}} </p> 
+           <p>
+               <ul class="mem">
+                <li>
+                    Creation date: {{.CreationDate}} 
+                   </li>
+               </ul>
+        </p>
+        <p class="space">
+            <ul class="mem">
+                <li>
+                    Date of the first album: {{.FirstAlbum}} 
+                </li>
+            </ul>
+        </p>
+           <p class="space">Members:  
+           {{ range .Members}}
+           <ul class="mem">
+            <li>
+                {{ . }} 
+            </li>
+           </ul>
+            {{ end }}
+        </p>
+        </div>
+      <div>
+        <p class="space">
+            Concert dates: <br class="space">
+         {{ range $key, $value := .Relations.DatesLocations}}
+         <div id="{{ $key }}" class="city" name="{{$key}}">{{ $key }}</div>
+            {{range $v := index $value }}
+                <ul class="mem1">
+                    <li>{{ $v }} </li> 
+                </ul>
+            {{ end }}
+            </p>
+        {{ end }}
+      </div>
+      <div id="map" class="map"></div>
+      <script src=/static/js/index.js type="text/javascript"></script>
+    </div>
+</div>
+</body>
+</html>
