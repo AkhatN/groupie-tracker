@@ -54,3 +54,5 @@ Geolocalization allows mapping the different concerts locations of a certain art
 ## How to run 
 1. Type **go run main.go**
 2. Open **localhost:8080** in any browser
+
+![alt text](static/img/ex-groupie.png "groupie")​
