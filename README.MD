@@ -23,11 +23,11 @@ Groupie tracker has some additional features:
 Search bar searches inside the website for a specific text input. A client can search a member or artist or any other attribute in the data system.
 
 The program handles these search cases :
-    * artist/band name
-    * members
-    * locations
-    * first album date
-    * creation date
+* artist/band name
+* members
+* locations
+* first album date
+* creation date
 
 The search bar has typing suggestions as you write.
     The search bar identifies and displays in each suggestion the individual type of the search cases. (ex: Freddie Mercury -> member)
@@ -38,10 +38,10 @@ The search bar has typing suggestions as you write.
 Filters allows the user filter the artists/bands that will be shown.
 
 The project incorporates these four filters:
-    * filter by creation date
-    * filter by first album date
-    * filter by number of members
-    * filter by locations of concerts
+* filter by creation date
+* filter by first album date
+* filter by number of members
+* filter by locations of concerts
 
 
 
